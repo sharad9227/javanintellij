@@ -1,4 +1,4 @@
-package bean;
+package controllers;
 
 public class StudentBean {
 

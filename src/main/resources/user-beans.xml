@@ -14,10 +14,7 @@
     <bean name="service" id="userService" class="service.StudentServiceImpl" />
     <bean name="dao" id="userDao" class="dao.StudentDaoImpl" />
     <!-- autowiring byName, bean name should be same as the property name -->
-    <bean name="studentServiceByName" class="service.StudentServiceImpl" autowire="byName" />
 
 
-    <!-- autowiring by constructor -->
-    <bean name="studentServiceConstructor" class="service.StudentServiceImpl" autowire="constructor" />
 
 </beans>

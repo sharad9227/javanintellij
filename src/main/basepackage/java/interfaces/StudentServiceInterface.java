@@ -1,12 +1,17 @@
 package interfaces;
 
-import bean.StudentBean;
 import entities.StudentRegistrationEntity;
+import org.springframework.stereotype.Service;
 
-public interface StudentDao {
+@Service
+public interface StudentServiceInterface {
+
     //register|add student
-    void registerStudent(StudentBean studentReg);
+    void registerStudent(StudentRegistrationEntity bean);
     //checking login
     boolean checkLogin(StudentRegistrationEntity validStudent);
+
+
+
 
 }

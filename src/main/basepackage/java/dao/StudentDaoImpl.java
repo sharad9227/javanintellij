@@ -1,8 +1,6 @@
 package dao;
 
 
-import bean.StudentBean;
-import entities.StudentEntity;
 import entities.StudentRegistrationEntity;
 import interfaces.StudentDao;
 import org.hibernate.SessionFactory;
@@ -10,14 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.slf4j.Logger;
 import org.hibernate.Session;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import java.util.List;
 
 @Repository
-public class StudentDaoImpl implements StudentDao {
+public  class StudentDaoImpl implements StudentDao {
 
 public static final Logger logger= LoggerFactory.getLogger(StudentDaoImpl.class);
 
@@ -54,8 +47,8 @@ private SessionFactory sessionFactory;
         em.close();
     }*/
 
-
-public void registerStudent(StudentBean registerStudent)
+@Override
+public void registerStudent(StudentRegistrationEntity registerStudent)
 {
 
     try {
@@ -70,13 +63,13 @@ public void registerStudent(StudentBean registerStudent)
     }
 }
 
+    @Override
+    public boolean checkLogin(StudentRegistrationEntity validStudent) {
+        return false;
+    }
 
-@Override
-public boolean checkLogin(StudentRegistrationEntity loginDetails)
-{
 
-return true;
-}
+
 
 
 

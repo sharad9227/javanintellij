@@ -1,23 +1,27 @@
 package service;
 
-import bean.StudentBean;
 import entities.StudentRegistrationEntity;
 import interfaces.StudentDao;
 import interfaces.StudentServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class StudentServiceImpl implements StudentServiceInterface {
 
-private StudentDao studentDao;
-    public void setPersonDAO(StudentDao student) {
-        this.studentDao = student;
+    private  StudentDao dao;
+@Autowired
+    public void setStudentDao(StudentDao dao) {
+        this.dao = dao;
     }
 
+
+
+    @Override
     @Transactional
-    public void registerStudent(StudentBean student) {
-        this.studentDao.registerStudent(student);
+    public void registerStudent(StudentRegistrationEntity student) {
+        this.dao.registerStudent(student);
     }
 
 
@@ -26,7 +30,7 @@ private StudentDao studentDao;
     @Override
 
     public boolean checkLogin (StudentRegistrationEntity student) {
-        return this.studentDao.checkLogin(student);
+        return this.dao.checkLogin(student);
     }
 
 
